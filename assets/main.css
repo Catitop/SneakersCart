@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: #000;
+    overflow-x: hidden;
+  }
+  
+  .container_cart {
+    width: 42rem;
+    background: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -42rem;
+  }
+  
+  .start_animation {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+  }
+  
+  .container_cart.container_cart_start_open_animation {
+    animation: fade_in_cart 0.3s linear;
+  }
+  
+  .container_cart.container_cart_start_close_animation {
+    animation: fade_out_cart 0.3s linear;
+  }
+  
+  @keyframes fade_in_cart {
+    0% {
+      right: -42rem;
+    }
+  
+    100% {
+      right: 0;
+    }
+  }
+  
+  @keyframes fade_out_cart {
+    0% {
+      right: 0;
+    }
+  
+    100% {
+      right: -42rem;
+    }
+  }
