@@ -16,6 +16,30 @@
     bottom: 0;
     right: -42rem;
   }
+
+  .remove_item_button {
+    background: none;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    gap: 0.188rem;
+
+    cursor: pointer;
+  }
+
+  .remove_item_button span {
+
+    font-size: 1.063rem;
+    margin-right: 0.125rem;
+
+    text-decoration-line: underline;
+  }
+
+  .remove_item_button img {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
   
   .start_animation {
     position: absolute;

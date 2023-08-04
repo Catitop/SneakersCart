@@ -2,11 +2,12 @@ const buttonStartAnimation = document.querySelector(".start_animation");
 const divContainer = document.querySelector(".container_cart");
 const contentCart = document.querySelector(".content_cart");
 const finalPrice = document.querySelector(".final_price");
+const removeItemButton = document.querySelector(".remove_item_button")
 let isOpen = false;
 let itemsString = "";
 let countFinalPrice = 0;
 
-const cartItems = [
+let cartItems = [
   {
     id: 0,
     name: "Jordan",
@@ -29,12 +30,28 @@ const cartItems = [
   },
 ];
 
+function resetOnScreen() {
+  itemsString = "";
+  countFinalPrice = 0;
+};
+
+function removeItem(id) {
+  cartItems = cartItems.filter((item) => {
+    return item.id !== id
+  } )
+  resetOnScreen()
+  onShowOnScreenElements()
+
+  };
+
 function showItem(item) {
   itemsString =
     itemsString +
     `
     <div>${item.name}</div>
     <div>${item.price}</div>
+    <button class="remove_item_button" onclick="removeItem(${item.id})"><img src="/assets/trash png.jpg" alt="Trash">
+    <span>Remove</span></button>
     <br />
   `;
 
@@ -44,7 +61,7 @@ function showItem(item) {
 function onShowOnScreenElements() {
   cartItems.forEach(showItem);
   contentCart.innerHTML = itemsString;
-  finalPrice.innerHTML = countFinalPrice;
+  finalPrice.innerHTML = `Total: ${countFinalPrice}`;
 }
 
 const openOrCloseCart = () => {
